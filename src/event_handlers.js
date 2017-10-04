@@ -54,9 +54,9 @@ export function _onKeyDown( event, forceConsider = false ) {
  * @param {object} event.target The node origin of the event
  * @return {boolean} Whether to continue procesing the keydown event
  */
-export function _shouldConsider( { ctrlKey, target } ) {
+export function _shouldConsider( { ctrlKey, metaKey, target } ) {
   return (
-    ctrlKey || (
+    (ctrlKey || metaKey) || (
       !~[ 'INPUT', 'SELECT', 'TEXTAREA' ].indexOf( target.tagName ) && (
         !target.getAttribute ||
         target.getAttribute( 'role' ) !== 'textbox'
